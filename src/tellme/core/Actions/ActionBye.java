@@ -11,20 +11,17 @@ import tellme.core.Person;
  *
  * @author mad
  */
-public class ActionGreet implements Action {
+public class ActionBye implements Action{
 
     @Override
     public void Do(Person person) {
-        if (person.activeConversation == null && person.pendingConversation != null) {
-            person.activeConversation = person.pendingConversation;
-            person.pendingConversation = null;
-            person.activeConversation.Greet(person);
-        }
+        if(person.activeConversation!=null)person.activeConversation.EndConversation();
     }
 
     @Override
     public boolean Condition(Person person) {
-       return true;
+        //NONE
+        return true;
     }
-
+    
 }

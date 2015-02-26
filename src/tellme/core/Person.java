@@ -34,7 +34,7 @@ public class Person extends Subject implements Steppable {
 
     @Override
     public void Step() {
-        if (actions.get(0).Condition(this)) {
+        if (!actions.isEmpty()&&actions.get(0).Condition(this)) {
             actions.remove(0).Do(this);
         }
     }
@@ -53,22 +53,16 @@ public class Person extends Subject implements Steppable {
         actions.clear();
     }
 
-    Conversation activeConversation = null;
-
-    public void setActiveConversation(Conversation activeConversation) {
-        this.activeConversation = activeConversation;
-    }
-
-    public Conversation getActiveConversation() {
-        return activeConversation;
-    }
+    public Conversation activeConversation = null;
+    public Conversation pendingConversation = null;
 
     HashMap<Person, Relation> relations;
 
-    public Person() {
+    public Person(String name) {
         this.relations = new HashMap<>();
         this.knowledge = new ArrayList[5];
         this.actions = new ArrayList();
+        this.name=name;
     }
 
 }

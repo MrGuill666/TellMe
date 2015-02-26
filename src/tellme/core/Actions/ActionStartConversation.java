@@ -18,14 +18,12 @@ public class ActionStartConversation implements Action{
     public void Do(Person person) {
         Conversation conv;
         conv = new Conversation();
-        partner.setActiveConversation(conv);
-        person.setActiveConversation(conv);
+        partner.pendingConversation=conv;
+        person.pendingConversation=conv;
         conv.partakers[0]=person;
         conv.partakers[1]=partner;
         conv.current=person;
-        
         person.AddAction(new ActionGreet());
-        partner.AddAction(new ActionGreet());
     }
 
     public ActionStartConversation(Person partner) {

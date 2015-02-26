@@ -18,7 +18,7 @@ public abstract class ActionConversationAbstract implements Action{
 
     @Override
     public boolean Condition(Person person) {
-        return person.getActiveConversation().current==person;
+        return person.activeConversation!=null&&person.activeConversation.current==person;
         
     }
     

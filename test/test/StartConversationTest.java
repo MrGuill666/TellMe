@@ -49,8 +49,8 @@ public class StartConversationTest {
     public void StartConversation()
     {
         Person p1,p2;
-        p1=new Person();
-        p2=new Person();
+        p1=new Person("P1");
+        p2=new Person("P2");
         p1.AddAction(new ActionStartConversation(p2));
     }
     
@@ -58,11 +58,11 @@ public class StartConversationTest {
     public void Greet()
     {
         Person p1,p2;
-        p1=new Person();
-        p2=new Person();
+        p1=new Person("P1");
+        p2=new Person("P2");
         Conversation c=new Conversation();
-        p1.setActiveConversation(c);
-        p2.setActiveConversation(c);
+        p1.activeConversation=c;
+        p2.activeConversation=c;
         c.partakers[0]=p1;
         c.partakers[1]=p2;
         c.current=p1;
